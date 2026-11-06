@@ -1,0 +1,175 @@
+/* QuickBite Food Ordering - styles.css */
+
+.app-root {
+    -fx-background-color: #F7F5F0;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #EBE8E0;
+    -fx-border-width: 0 1 0 0;
+}
+.logo-area {
+    -fx-padding: 20 16 16 16;
+    -fx-border-color: #EBE8E0;
+    -fx-border-width: 0 0 1 0;
+}
+.logo-title { -fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #993C1D; }
+.logo-sub   { -fx-font-size: 11px; -fx-text-fill: #888780; }
+
+.nav-section       { -fx-padding: 14 8 6 8; }
+.nav-section-label { -fx-font-size: 10px; -fx-text-fill: #B4B2A9; -fx-padding: 0 0 4 8; }
+
+.nav-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 6;
+    -fx-border-color: transparent;
+    -fx-text-fill: #5F5E5A;
+    -fx-font-size: 12px;
+    -fx-padding: 8 10 8 10;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+}
+.nav-item:hover { -fx-background-color: #FDF0EB; }
+.nav-active     { -fx-background-color: #FAECE7; -fx-text-fill: #993C1D; -fx-font-weight: bold; }
+
+.user-row {
+    -fx-padding: 12 10 14 12;
+    -fx-border-color: #EBE8E0;
+    -fx-border-width: 1 0 0 0;
+}
+.avatar {
+    -fx-background-color: #F5C4B3;
+    -fx-background-radius: 50;
+    -fx-text-fill: #993C1D;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+    -fx-min-width: 32; -fx-min-height: 32;
+    -fx-max-width: 32; -fx-max-height: 32;
+    -fx-alignment: CENTER;
+}
+.user-name { -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #2C2C2A; }
+.user-role { -fx-font-size: 10px; -fx-text-fill: #888780; }
+
+/* Top bar */
+.main-area { -fx-background-color: #F7F5F0; }
+.topbar {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 0 20 0 20;
+    -fx-min-height: 54; -fx-max-height: 54;
+    -fx-border-color: #EBE8E0;
+    -fx-border-width: 0 0 1 0;
+}
+.topbar-title { -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2C2C2A; }
+
+.search-box {
+    -fx-background-color: #F7F5F0;
+    -fx-border-color: #D3D1C7;
+    -fx-border-width: 0.5;
+    -fx-border-radius: 7;
+    -fx-background-radius: 7;
+    -fx-padding: 6 12 6 10;
+}
+.search-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 12px;
+}
+.search-field:focused { -fx-border-color: transparent; }
+
+/* Content */
+.content-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+.content-scroll > .viewport { -fx-background-color: transparent; }
+.content-area { -fx-background-color: transparent; }
+
+/* Category chips */
+.chip {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #5F5E5A;
+    -fx-font-size: 12px;
+    -fx-background-radius: 20;
+    -fx-border-color: #D3D1C7;
+    -fx-border-width: 0.5;
+    -fx-border-radius: 20;
+    -fx-padding: 5 14 5 14;
+    -fx-cursor: hand;
+}
+.chip:hover  { -fx-background-color: #F7F5F0; }
+.chip-active {
+    -fx-background-color: #D85A30;
+    -fx-text-fill: white;
+    -fx-border-color: #D85A30;
+    -fx-font-weight: bold;
+}
+
+.section-title { -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #2C2C2A; }
+
+/* Cart panel */
+.cart-panel {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #EBE8E0;
+    -fx-border-width: 0 0 0 1;
+}
+.cart-header {
+    -fx-padding: 14 16 14 16;
+    -fx-border-color: #EBE8E0;
+    -fx-border-width: 0 0 1 0;
+    -fx-min-height: 50; -fx-max-height: 50;
+}
+.cart-title { -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #2C2C2A; }
+.cart-count { -fx-font-size: 11px; -fx-text-fill: #888780; }
+
+.cart-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+.cart-scroll > .viewport { -fx-background-color: transparent; }
+.cart-items-box { -fx-background-color: transparent; }
+
+/* Cart summary */
+.cart-summary {
+    -fx-padding: 14 16 16 16;
+    -fx-border-color: #EBE8E0;
+    -fx-border-width: 1 0 0 0;
+    -fx-background-color: #FFFFFF;
+}
+.summary-label { -fx-font-size: 12px; -fx-text-fill: #888780; }
+.summary-value { -fx-font-size: 12px; -fx-text-fill: #2C2C2A; }
+.total-label   { -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2C2C2A; }
+.total-value   { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #D85A30; }
+
+.divider {
+    -fx-background-color: #EBE8E0;
+    -fx-min-height: 1; -fx-max-height: 1; -fx-pref-height: 1;
+}
+
+/* Place Order button */
+.btn-place-order {
+    -fx-background-color: #D85A30;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-color: transparent;
+    -fx-padding: 10 0 10 0;
+    -fx-cursor: hand;
+}
+.btn-place-order:hover    { -fx-background-color: #993C1D; }
+.btn-place-order:disabled { -fx-background-color: #D3D1C7; -fx-text-fill: #888780; }
+
+.cart-badge {
+    -fx-background-color: #D85A30;
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 2 6 2 6;
+}

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.geometry.Insets?>
+
+<HBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.food_ordering_system.DashboardController"
+      prefWidth="1050" prefHeight="660"
+      styleClass="app-root">
+
+    <!-- SIDEBAR -->
+    <VBox styleClass="sidebar" prefWidth="200" spacing="0">
+
+        <VBox styleClass="logo-area" spacing="2">
+            <Label text="QuickBite" styleClass="logo-title"/>
+            <Label text="Food Ordering" styleClass="logo-sub"/>
+        </VBox>
+
+        <VBox styleClass="nav-section" spacing="2">
+            <Label text="MENU" styleClass="nav-section-label"/>
+            <Button fx:id="btnMenu" text="  Browse Menu"
+                    styleClass="nav-item,nav-active" maxWidth="Infinity"
+                    onAction="#showMenu"/>
+            <Button fx:id="btnCart" text="  My Cart"
+                    styleClass="nav-item" maxWidth="Infinity"
+                    onAction="#showCart"/>
+            <Button fx:id="btnOrders" text="  My Orders"
+                    styleClass="nav-item" maxWidth="Infinity"
+                    onAction="#showOrders"/>
+        </VBox>
+
+        <VBox styleClass="nav-section" spacing="2">
+            <Label text="CATEGORIES" styleClass="nav-section-label"/>
+            <Button text="  Rice Dishes" styleClass="nav-item"
+                    maxWidth="Infinity" onAction="#filterRice"/>
+            <Button text="  Snacks" styleClass="nav-item"
+                    maxWidth="Infinity" onAction="#filterSnacks"/>
+            <Button text="  Drinks" styleClass="nav-item"
+                    maxWidth="Infinity" onAction="#filterDrinks"/>
+            <Button text="  Soups" styleClass="nav-item"
+                    maxWidth="Infinity" onAction="#filterSoups"/>
+        </VBox>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <HBox styleClass="user-row" alignment="CENTER_LEFT" spacing="10">
+            <Label text="KA" styleClass="avatar"/>
+            <VBox spacing="1">
+                <Label text="Kwame A." styleClass="user-name"/>
+                <Label text="Customer" styleClass="user-role"/>
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <!-- MAIN CONTENT -->
+    <VBox HBox.hgrow="ALWAYS" styleClass="main-area" spacing="0">
+
+        <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
+            <Label text="Browse Menu" styleClass="topbar-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <HBox styleClass="search-box" alignment="CENTER_LEFT" spacing="6">
+                <Label text="Search:" style="-fx-font-size: 12px; -fx-text-fill: #888780;"/>
+                <TextField fx:id="searchField" promptText="Type to search..."
+                           styleClass="search-field" prefWidth="170"/>
+            </HBox>
+        </HBox>
+
+        <HBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" spacing="0">
+
+            <!-- Menu area -->
+            <ScrollPane styleClass="content-scroll" fitToWidth="true"
+                        HBox.hgrow="ALWAYS">
+                <VBox styleClass="content-area" spacing="14">
+                    <padding>
+                        <Insets top="16" right="16" bottom="16" left="20"/>
+                    </padding>
+
+                    <HBox spacing="8">
+                        <Button fx:id="chipAll"    text="All"
+                                styleClass="chip,chip-active" onAction="#filterAll"/>
+                        <Button fx:id="chipRice"   text="Rice"
+                                styleClass="chip" onAction="#filterRice"/>
+                        <Button fx:id="chipSnacks" text="Snacks"
+                                styleClass="chip" onAction="#filterSnacks"/>
+                        <Button fx:id="chipDrinks" text="Drinks"
+                                styleClass="chip" onAction="#filterDrinks"/>
+                        <Button fx:id="chipSoups"  text="Soups"
+                                styleClass="chip" onAction="#filterSoups"/>
+                    </HBox>
+
+                    <Label text="Popular Items" styleClass="section-title"/>
+
+                    <FlowPane fx:id="menuGrid" hgap="12" vgap="12" prefWrapLength="580"/>
+                </VBox>
+            </ScrollPane>
+
+            <!-- Cart panel -->
+            <VBox styleClass="cart-panel" prefWidth="240" spacing="0">
+
+                <HBox styleClass="cart-header" alignment="CENTER_LEFT" spacing="8">
+                    <Label text="Order Summary" styleClass="cart-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="lblCartCount" text="0 items" styleClass="cart-count"/>
+                </HBox>
+
+                <ScrollPane styleClass="cart-scroll" fitToWidth="true" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="cartItemsBox" styleClass="cart-items-box">
+                        <padding>
+                            <Insets top="8" right="12" bottom="8" left="12"/>
+                        </padding>
+                    </VBox>
+                </ScrollPane>
+
+                <VBox styleClass="cart-summary" spacing="6">
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Subtotal" styleClass="summary-label"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="lblSubtotal" text="GH₵ 0.00" styleClass="summary-value"/>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Service fee" styleClass="summary-label"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="lblServiceFee" text="GH₵ 2.00" styleClass="summary-value"/>
+                    </HBox>
+                    <Region styleClass="divider"/>
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Total" styleClass="total-label"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="lblTotal" text="GH₵ 0.00" styleClass="total-value"/>
+                    </HBox>
+                    <Button fx:id="btnPlaceOrder" text="Place Order"
+                            styleClass="btn-place-order" maxWidth="Infinity"
+                            onAction="#placeOrder" disable="true"/>
+                </VBox>
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <!-- Hidden cart badge (kept so the controller field is always injected) -->
+    <Label fx:id="lblCartBadge" text="0" styleClass="cart-badge" visible="false"
+           managed="false"/>
+
+</HBox>
